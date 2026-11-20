@@ -1,0 +1,530 @@
+"Setup
+
+0→U
+
+ClrHome
+"L₁=Inventory
+"L₃=MONSTOR DATA {1-6}=HP^S {7}=CURRENT HP {8}=TYPE{10-11} BATTLE DATA
+{12,9,11,7,8,10,0,0,0,0,0}→L₃
+3→dim(L₆)
+6→dim(L₄)
+6→dim(L₁)
+5→dim(L₂)
+6→dim(L₅)
+
+If L₅(1)=0
+0→L₅(1)
+If L₅(2)=0
+0→L₅(2)
+If L₅(3)=0
+0→L₅(3)
+If L₅(4)=0
+999→L₅(4)
+If L₅(5)=0
+999→L₅(5)
+If L₅(6)=0
+999→L₅(6)
+
+"Str1=Textures
+" θFπ*A0? "→Str1
+
+"L₂=Position {1,2}=NEW {3,4=OLD {5}=DIRECTION (0=X 1=Y)
+
+"Settings
+Goto T
+Lbl V
+Output(1,1,"------Level records-------"
+Output(2,1,"Easy Mode record:"+toString(L₅(1))
+Output(3,1,"Normal Mode record:"+toString(L₅(2))
+Output(4,1,"Hard Mode record:"+toString(L₅(3))
+
+Output(5,1,"-----Speedrun records-----"
+
+Output(6,1,"Easy:")
+Output(7,1,"Norm:")
+Output(8,1,"Hard:")
+Output(9,1,"Last:")
+
+Output(6,27-length(toString(L₅(4))),L₅(4))
+Output(7,27-length(toString(L₅(5))),L₅(5))
+Output(8,27-length(toString(L₅(6))),L₅(6))
+Output(9,27-length(toString(T)),T)
+
+Output(10,15,"Back [ENTER]")
+Pause 
+ClrHome
+Goto T
+
+Lbl Q
+Output(1,1,"Move with the buttons:8,4,2,and 6 on the number pad.Press Clr to quit playing.Pixie dust lets you go to any day.                  There is no telescope and love potion. You get infinite inventory. Base game: ko-fi.com/album/Pocket-Quest-J3J55AN6F  Back:[ENTER]"
+Pause 
+ClrHome
+Lbl T
+
+Menu(" TI-QUEST BY IGNAS SAGISI ","New game",N,"Resume",O,"How to play",Q,"High scores",V,"Quit",X)
+Lbl N
+
+"Clear List
+Fill(0,L₁)
+Fill(0,L₄)
+
+1→L
+0→D
+0→Z
+0→B
+0→P
+0→R
+20→F
+20→H
+
+Output(1,1,"        Loading...        ")
+Listmatr({0,0,2,0,0,5,0,0,7},{0,4,0,7,0,0,0,1,0},{0,0,0,0,0,2,0,0,0},{0,0,3,0,0,0,0,6,6},{6,6,0,0,8,0,0,0,0},{0,7,0,0,0,0,4,0,0},{0,0,0,0,7,0,0,0,2},{0,0,2,0,0,6,0,0,0},{0,1,0,0,0,6,3,0,5},{0,0,0,0,0,6,0,0,0},{0,0,2,0,0,5,0,0,7},{0,4,0,0,0,0,0,1,0},{0,0,0,0,0,2,0,0,0},{0,0,3,0,0,0,0,6,6},{6,6,0,0,8,0,0,0,0},{0,0,0,0,0,0,4,0,0},{0,0,0,0,7,0,0,0,2},{0,0,2,0,0,6,0,0,0},{0,1,0,0,0,6,3,0,0},{0,0,0,0,0,6,0,0,0},{0,0,7,0,0,7,0,0,0},{0,7,0,0,0,0,0,1,0},{0,0,0,0,0,0,0,0,0},{0,0,7,0,0,0,0,6,6},{6,6,0,0,8,0,0,0,0},{0,0,0,0,0,0,7,0,0},{0,0,0,0,7,0,0,0,2},{0,0,7,0,0,6,0,0,0},{0,1,0,0,0,6,7,0,7},{0,0,0,0,0,6,0,0,0},[A])
+
+Listmatr({2,0,6,0,3,0,0,0,7},{0,4,6,0,0,0,0,1,0},{0,0,6,0,0,6,6,6,6},{0,0,5,0,0,6,2,0,0},{7,0,0,0,8,0,0,0,0},{0,0,7,0,0,3,0,0,4},{0,0,0,0,0,0,0,0,0},{6,6,6,2,0,1,0,0,0},{0,5,0,0,0,0,0,7,0},{0,0,0,0,4,0,0,0,0},{2,0,6,0,3,0,0,0,7},{0,4,6,0,0,0,0,1,0},{0,0,6,0,0,6,6,6,6},{0,0,0,0,0,0,2,0,0},{7,0,0,0,8,0,0,0,0},{0,0,7,0,0,0,0,0,4},{0,0,0,0,0,0,0,0,0},{6,6,6,2,0,1,0,0,0},{0,5,0,0,0,0,0,7,0},{0,0,0,0,4,0,0,0,0},{7,0,6,0,7,0,0,0,7},{0,7,6,0,0,0,0,1,0},{0,0,6,0,0,6,6,6,6},{0,0,7,0,0,6,0,0,0},{7,0,0,0,8,0,0,0,0},{0,0,0,0,0,7,0,0,7},{0,0,0,0,0,0,0,0,0},{6,6,6,2,0,7,0,0,0},{0,7,0,0,0,0,0,7,0},{0,0,0,0,0,0,0,0,0},[B])
+
+Listmatr({2,6,0,0,0,0,0,0,7},{0,6,1,0,4,0,2,0,0},{0,0,0,0,0,0,0,0,0},{6,6,6,6,0,8,0,0,3},{0,7,0,0,0,0,7,0,0},{0,0,0,5,0,0,0,6,6},{0,2,0,0,0,0,0,4,0},{0,0,0,0,0,1,0,0,0},{1,0,0,0,6,0,0,5,0},{0,0,7,0,6,0,0,0,0},{2,6,0,0,0,0,0,0,7},{0,6,1,0,4,0,2,0,0},{0,0,0,0,0,0,0,0,0},{6,6,6,6,0,8,0,0,0},{0,7,0,0,0,0,0,0,3},{0,0,0,5,0,0,0,6,6},{0,0,0,0,0,0,0,4,0},{0,0,0,0,0,1,0,0,0},{1,0,0,0,6,0,0,5,0},{0,0,7,0,6,0,0,0,0},{2,6,0,0,0,0,0,0,7},{0,6,1,0,7,0,0,0,0},{0,0,0,0,0,0,0,0,0},{6,6,6,6,0,8,0,0,7},{0,0,0,0,0,0,7,0,0},{0,0,0,7,0,0,0,6,6},{0,7,0,0,0,0,0,7,0},{0,0,0,0,0,7,0,0,0},{1,0,0,0,6,0,0,0,0},{0,0,7,0,6,0,0,0,0},[C])
+
+Listmatr({0,0,2,0,7,6,0,0,0},{7,0,0,0,0,6,1,0,4},{6,6,0,0,0,0,0,6,6},{0,5,0,0,4,0,2,0,0},{0,0,0,0,0,0,0,7,0},{7,0,0,0,8,0,0,0,0},{6,6,6,6,0,0,5,0,0},{7,0,3,6,0,0,0,0,0},{0,0,0,0,2,0,0,1,0},{5,0,0,0,0,0,0,0,0},{0,0,2,0,0,6,0,0,0},{7,0,0,0,0,6,1,0,4},{6,6,0,0,0,0,0,6,6},{0,5,0,0,4,0,2,0,0},{0,0,0,0,0,0,0,7,0},{7,0,0,0,8,0,0,0,0},{6,6,6,6,0,0,5,0,0},{7,0,0,6,0,0,0,0,0},{0,0,0,0,2,0,0,1,0},{5,0,0,0,0,0,0,0,0},{0,0,7,0,0,6,0,0,0},{7,0,0,0,0,6,1,0,7},{6,6,0,0,0,0,0,6,6},{0,7,0,0,0,0,7,0,0},{0,0,0,0,0,0,0,0,0},{7,0,0,0,8,0,0,0,0},{6,6,6,6,0,0,7,0,0},{0,0,7,6,0,0,0,0,0},{0,0,0,0,2,0,0,7,0},{7,0,0,0,0,0,0,0,0},[D]
+
+Listmatr({0,0,0,0,0,0,7,0,0},{5,0,7,0,0,4,0,0,5},{0,0,0,0,0,0,0,2,0},{6,6,0,0,0,0,6,0,0},{2,6,5,0,8,0,6,6,6},{2,6,0,0,0,0,0,0,0},{0,6,0,2,0,0,7,0,0},{0,3,0,0,0,6,0,3,0},{0,0,0,0,4,6,0,0,0},{0,0,0,0,0,6,0,1,0},{0,0,0,0,0,0,0,0,0},{5,0,7,0,0,4,0,0,5},{0,0,0,0,0,0,0,2,0},{6,6,0,0,0,0,6,0,0},{2,6,5,0,8,0,6,6,6},{2,6,0,0,0,0,0,0,0},{0,6,0,2,0,0,7,0,0},{0,3,0,0,0,6,0,3,0},{0,0,0,0,4,6,0,0,0},{0,0,0,0,0,6,0,1,0},{0,0,0,0,0,0,7,0,0},{7,0,7,0,0,7,0,0,0},{0,0,0,0,0,0,0,7,0},{6,6,0,0,0,0,6,0,0},{0,6,0,0,8,0,6,6,6},{2,6,0,0,0,0,0,0,0},{0,6,0,7,0,0,7,0,0},{0,7,0,0,0,6,0,7,0},{0,0,0,0,0,6,0,0,0},{0,0,0,0,0,6,0,1,0},[E])
+
+Listmatr({0,1,0,4,0,6,0,2,0},{0,0,0,0,0,6,1,0,0},{3,0,0,0,7,0,6,0,7},{0,0,6,0,0,0,6,0,0},{6,6,6,3,0,0,0,5,0},{0,0,0,0,0,8,0,6,6},{0,5,0,2,0,0,0,0,0},{0,0,0,0,0,7,0,4,0},{6,6,6,0,0,0,0,0,0},{1,0,2,0,0,0,0,0,5},{0,1,0,4,0,6,0,2,0},{0,0,0,0,0,6,1,0,0},{3,0,0,0,0,0,6,0,0},{0,0,6,0,0,0,6,0,0},{6,6,6,3,0,7,0,5,0},{0,0,0,0,0,8,0,6,6},{0,5,0,0,0,0,0,0,0},{0,0,0,0,0,7,0,4,0},{6,6,6,0,0,0,0,0,0},{1,0,2,0,0,0,0,0,5},{0,7,0,0,0,6,0,7,0},{0,0,0,0,0,6,7,0,0},{0,0,0,0,7,0,6,0,0},{0,0,6,0,0,0,6,0,0},{6,6,6,0,0,0,0,0,0},{0,0,0,0,0,8,0,6,6},{0,7,0,2,0,0,0,0,0},{0,0,0,0,0,7,0,7,0},{6,6,6,0,0,0,0,0,0},{1,0,7,0,0,0,0,0,7},[F])
+
+Listmatr({0,0,7,0,6,7,0,0,1},{3,0,0,0,6,0,0,0,0},{0,0,0,4,0,8,0,0,6},{1,0,0,0,0,0,7,0,0},{0,0,0,0,0,0,0,0,3},{0,0,7,6,0,2,0,0,0},{6,6,6,6,0,0,6,6,6},{0,5,0,0,0,0,6,1,0},{0,0,2,0,4,0,0,0,2},{3,0,0,0,0,0,0,0,0},{0,0,7,0,6,7,0,0,1},{3,0,0,0,6,0,0,0,0},{0,0,0,4,0,8,0,0,6},{1,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,3},{0,0,7,6,0,2,0,0,0},{6,6,6,6,0,0,6,6,6},{0,5,0,0,0,0,6,1,0},{0,0,0,0,4,0,0,0,2},{3,0,0,0,0,0,0,0,0},{0,0,7,0,6,0,0,0,7},{0,0,0,0,6,0,0,0,0},{0,0,0,7,0,8,0,0,6},{1,0,0,0,0,0,7,0,0},{0,0,0,0,0,0,0,0,7},{0,0,0,6,0,7,0,0,0},{6,6,6,6,0,0,6,6,6},{0,0,0,0,0,0,6,1,0},{0,0,7,0,0,0,0,0,0},{7,0,0,0,0,0,0,0,0},[G])
+
+"Home Prep
+ClrHome
+Fill(0,L₂)
+0→L₂(1)
+0→L₂(2)
+
+getTime→L₆
+
+Menu("        Difficulty        ","Easy",E,"Normal",M,"Hard",H)
+
+Lbl E
+0→D
+Goto O
+Lbl M
+1→D
+Goto O
+Lbl H
+2→D
+Lbl O
+
+ClrHome
+
+If L=10 and Z=0
+Then
+getTime-L₆→L₆
+1→Z
+L₆(1)*3600+L₆(2)*60+L₆(3)→T
+If T<L₅(4+D)
+Then
+L₆(1)*3600+L₆(2)*60+L₆(3)→L₅(4+D)
+Menu("       NEW RECORD!!       ","Continue",O,"To title screen",T,"Quit",X)
+End
+Menu("         You won!         ","Continue",O,"To title screen",T,"Quit",X)
+End
+
+If U≠0
+Goto G
+
+"Level Output
+
+If P=0
+[A]→[I]
+If P=1
+[B]→[I]
+If P=2
+[C]→[I]
+If P=3
+[D]→[I]
+If P=4
+[E]→[I]
+If P=5
+[F]→[I]
+If P=6
+[G]→[I]
+
+For(Y,1,10)
+For(X,1,9)
+Output(Y,X*2-1,sub(Str1,[I](X,Y+10D)+1,1))
+If [I](X,Y+10D)=8
+Then
+X→L₂(1)
+Y→L₂(2)
+End
+End
+End
+
+"Draw Player
+Output(L₂(2),L₂(1)*2-1,"x")
+
+For(Y,1,10)
+Output(Y,18,":")
+End
+
+"MAIN LOOP
+Lbl S
+While 1
+
+If H>20
+20→H
+
+Output(2,19,"Day:"+toString(P+1))
+Output(3,19,"Level:")
+Output(4,19,L)
+Output(5,19,"Health:")
+Output(6,19,H)
+Output(7,19,"Food:")
+If M>0
+Then
+Output(9,19,"+"+toString(M))
+End
+0→M
+Output(8,20,"     ")
+Output(8,19,F)
+
+If D=0
+Output(1,19,"--EASY--")
+If D=1
+Output(1,19,"-NORMAL-")
+If D=2
+Output(1,19,"--HARD--")
+
+Output(10,19,"Menus <>"
+
+Lbl G
+Repeat G≠0
+getKey→G
+End
+
+If G=45
+Menu("  Are you sure to quit??  ","No",D,"Yes",X)
+Lbl D
+If G=21 and P<6 and U=0
+Then
+For(V,1,6)
+F-L₄(V)*V→F
+End
+L₁(5)+L₄(3)→L₁(5)
+P+1→P
+Goto O
+End
+
+If U=0
+Then
+1→Y
+L₂(1)→L₂(3)
+L₂(2)→L₂(4)
+Output(9,19,"   ")
+End
+
+If G=26
+U+1→U
+If G=24
+U-1→U
+If G=24 or G=26
+ClrHome
+
+If U>2
+0→U
+If U<0
+2→U
+If U=0 and (G=24 or G=26)
+Goto O
+
+If G=105 and U=1
+Then
+
+If Y=4 and L₁(4)>0
+Then
+L₁(4)-1→L₁(4)
+H+5→H
+End
+
+If Y=6 and L₁(6)>0
+Then
+B+1→B
+L₁(6)-1→L₁(6)
+End
+
+If Y=5 and L₁(5)>0
+Then
+L₁(5)-1→L₁(5)
+0→U
+Menu("       Teleport to:       ","Day 1",7,"Day 2",8,"Day 3",9,"Day 4",10,"Day 5",11,"Day 6",12,"Day 7",13)
+Lbl 7
+0→P
+Goto O
+Lbl 8
+1→P
+Goto O
+Lbl 9
+2→P
+Goto O
+Lbl 10
+3→P
+Goto O
+Lbl 11
+4→P
+Goto O
+Lbl 12
+5→P
+Goto O
+Lbl 13
+6→P
+Goto O
+End
+End
+
+If G=25 and U>0
+Y-1→Y
+If G=34 and U>0
+Y+1→Y
+
+If Y>6
+1→Y
+If Y<1
+6→Y
+
+If U=1
+Then
+Output(1,1,"        {Backpack}         +  Sharpness:"+toString(L₁(1)))
+Output(3,1," X  Poison:"+toString(L₁(2)))
+Output(4,1," π  Armor Upgrades:"+toString(L₁(3)))
+Output(5,1," *  Life book:"+toString(L₁(4)))
+Output(6,1,"   Pixie Dust:"+toString(L₁(5)))
+Output(7,1," Q  Bomb:"+toString(L₁(6)))
+Output(10,1,"Use [ENTER]       Menus <>")
+Output(Y+1,1,"[")
+Output(Y+1,3,"]")
+End
+
+If G=23 and U=2 and L₄(Y)>0
+L₄(Y)-1→L₄(Y)
+
+If U=2
+Then
+Output(1,1,"         {Allies}         ")
+For(V,1,6)
+Output(V+1,1,sub("Pixie      Cupid      Will-o-WispGolem      Stag       Pegasus    ",(V-1)*11+1,11)+" x"+toString(L₄(V))+" FPD:"+toString(V)+"  DEL ")
+End
+Output(Y+1,22,"[")
+Output(Y+1,26,"]")
+Output(10,1,"Discard [DEL]     Menus <>")
+End
+
+If G=73 and U=0
+Then
+L₂(2)-1→L₂(2)
+Goto B
+End
+
+If G=82 and U=0
+Then
+L₂(1)-1→L₂(1)
+Goto B
+End
+
+If G=84 and U=0
+Then
+L₂(1)+1→L₂(1)
+Goto B
+End
+
+If G=93 and U=0
+Then
+L₂(2)+1→L₂(2)
+Goto B
+End
+
+Goto G
+Lbl B
+End
+
+If L₂(1)≥1 and L₂(1)≤9 and L₂(2)≥1 and L₂(2)≤10
+Then
+[I](L₂(1),L₂(2)+10D)→I
+If I≠6 or L₄(4)>0 or B>0
+Then
+If B>0
+B-1→B
+Output(L₂(4),L₂(3)*2-1," ")
+Output(L₂(2),L₂(1)*2-1,"x")
+0→[I](L₂(3),L₂(4)+10D)
+8→[I](L₂(1),L₂(2)+10D)
+If L₄(6)≤0 or inString(toString((L₂(1)+L₂(2))/2),".")/2=0
+F-1→F
+Else
+L₂(3)→L₂(1)
+L₂(4)→L₂(2)
+End
+Else
+L₂(3)→L₂(1)
+L₂(4)→L₂(2)
+End
+
+If P=0
+[I]→[A]
+If P=1
+[I]→[B]
+If P=2
+[I]→[C]
+If P=3
+[I]→[D]
+If P=4
+[I]→[E]
+If P=5
+[I]→[F]
+If P=6
+[I]→[G]
+
+Lbl I
+
+If I=7
+randInt(1,5)→I
+
+If F≤0 and I≠2 and I≠1
+Goto L
+
+If I=2
+Then
+2*randInt(1,6)→M
+F+M→F
+End
+
+If I=4
+Then
+If sum(L₄)≥3
+Menu("     Too many allies!     ","Continue",S)
+0→W
+ClrHome
+randInt(1,6)→V
+Repeat W=3
+Menu(sub("Pixie      Cupid      Will-o-WispGolem      Stag       Pegasus    ",(V-1)*11+1,11)+" {"+toString(V)+"}  Food:"+toString(F)+"   ","Woo",W,"Leave",O)
+Lbl W
+If randInt(1,7)+L₄(2)*2>V
+Then
+L₄(V)+1→L₄(V)
+F-V→F
+If F<1
+Goto L
+0→W
+Goto O
+Else
+W+1→W
+End
+End
+Goto O
+End
+
+If I=1
+Then
+ClrHome
+randInt(0,5)→L₃(8)
+L₃(L₃(8)+1)→L₃(7)
+Lbl 0
+
+If L₃(7)≤0
+Then
+L+1→L
+If L>L₅(D+1)
+L→L₅(D+1)
+F+L₃(L₃(8)+1)→F
+H+L₄(1)*2→H
+End
+If L₃(7)≤0
+Goto O
+
+If H≤0
+Goto L
+Menu(sub("Kill-o-WispPirate     Poison WingMad Hat    Crazy KoalaFire Sprite",L₃(8)*11+1,11)+" θ="+toString(round(L₃(7),0))+" HEALTH:"+toString(H)+"  ","Battle",F,"Poison...............x"+toString(L₁(2)),P,"ESCAPE!",O)
+Lbl F
+randInt(1,6)→L₃(10)
+randInt(1,6)→L₃(11)
+
+If L₃(10)>L₃(11)
+L₃(7)-(0.5*L₄(5)*(L₃(10)+L₁(1))+(L₃(10)+L₁(1)))→L₃(7)
+
+If L₃(11)>L₃(10)
+Then
+L₃(11)-L₃(10)-L₁(3)→V
+H-(V+abs(V))/2→H
+End
+
+Goto 0
+Lbl P
+If L₁(2)≤0
+Goto 0
+L₁(2)-1→L₁(2)
+0→L₃(7)
+Goto 0
+End
+
+If I=3
+Then
+ClrHome
+Menu("{Shop} FOOD:"+toString(F)+"             ","[+] Sharpness:4FP    x"+toString(L₁(1)),1,"[X] Poison:10FP      x"+toString(L₁(2)),2,"[θ] Armor Level:9FP  x"+toString(L₁(3)),3,"[*] Life Book:5FP    x"+toString(L₁(4)),4,"[] Pixie Dust:5FP   x"+toString(L₁(5)),5,"[6] Leave",O)
+Lbl 1
+If F≥4
+Then
+F-4→F
+L₁(1)+1→L₁(1)
+End
+Goto I
+Lbl 2
+If F≥10
+Then
+F-10→F
+L₁(2)+1→L₁(2)
+End
+Goto I
+Lbl 3
+If F≥9
+Then
+F-9→F
+L₁(3)+1→L₁(3)
+End
+Goto I
+Lbl 4
+If F≥5
+Then
+F-5→F
+L₁(4)+1→L₁(4)
+End
+Goto I
+Lbl 5
+If F≥4
+Then
+F-4→F
+L₁(5)+1→L₁(5)
+End
+Goto I
+End
+
+If I=5
+Then
+randInt(1,6)→V
+L₁(V)+1→L₁(V)
+End
+
+Lbl L
+If F≤0 or H≤0
+Then
+ClrHome
+0→H
+0→F
+L₂(3)→L₂(1)
+L₂(4)→L₂(2)
+Fill(0,L₆)
+Menu("        GAME OVER!        ","To title screen",T,"Quit",X)
+End
+
+0→[I](L₂(1),L₂(2)+10D)
+End
+"QUIT
+Lbl X
+ClrHome
+Stop

@@ -1,29 +1,29 @@
-# TI-QUEST
+# ti-quest
 A simple RPG game for the TI-84 Plus CE
 
 ## How to upload to your calculator:
-  * Download TI Connect™ CE Software.
-    https://education.ti.com/download/en/ed-tech/CA9C74CAD02440A69FDC7189D7E1B6C2/EE9E51FA137C4F388252DD191CAB37BF/TIConnectCE-6.0.3.619.exe
+  * [Download TI Connect™ CE Software](https://education.ti.com/download/en/ed-tech/CA9C74CAD02440A69FDC7189D7E1B6C2/EE9E51FA137C4F388252DD191CAB37BF/TIConnectCE-6.0.3.619.exe).
   * Open software.
   * Connect the calculator via a mini usb-b cable.
   * Drag and drop the TIQUEST.8xp file to connected calculator.
 
 ## Running the program:
-  * Go to your calculator and press the "PRGM" button.
+  * Go to your calculator and press the "**PRGM**" button.
   * Scroll down to "TIQUEST" using the arrow buttons.
-  * Press "ENTER".
-  * Press "ENTER" again to run the program.
+  * Press "**ENTER**".
+  * Press "**ENTER**" again to run the program.
 
 ## Playing the game:
-  * Watch https://youtu.be/yzcg7YWqKao?si=P3K1hOXZ8YB4T4Xv to see the original tutorial by Freckled Fox.
+  * [Watch the original tutorial](https://youtu.be/yzcg7YWqKao?si=P3K1hOXZ8YB4T4Xv) by *Freckled Fox*.
     **Note that this game has some differences.**
-    * Move your character [x] using the buttons 8, 4, 2, and 6 on the number pad.
-    * Press "clear" to quit.
+    * Move your character **[x]** using the buttons **8**, **4**, **2**, and **6** on the number pad.
+    * Press "**CLEAR**" to quit.
     * Pixie dust lets you time-travel instead of teleporting.
     * There is neither a telescope nor a love potion in this game.
     * You get infinite inventory.
     * You can shop for all items at the same time.
   ### KEY:
+  ```
     [+] → Attack  
     [F] → Food  
     [{♡}] → Woo  
@@ -33,9 +33,9 @@ A simple RPG game for the TI-84 Plus CE
     [θ] → Monster  
     [⁎] → Ally  
     [0] → Obstacle  
-
-Credit:
-Freckled Fox (www.youtube.com/@freckledfox) for making the original pen & paper game
+```
+### Credit:  
+**Freckled Fox (www.youtube.com/@freckledfox) for making the original pen & paper game**
 
 <img width="244" height="184" alt="Capture 1" src="https://github.com/user-attachments/assets/1578bbc2-a38e-449e-9a33-4a64507e19a6" />
 <img width="244" height="184" alt="Capture 2" src="https://github.com/user-attachments/assets/155ea862-f49c-4bb6-b52e-7a1ca999d138" />

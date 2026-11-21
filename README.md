@@ -15,18 +15,25 @@ A simple RPG game for the TI-84 Plus CE
 
 ## Playing the game:
   * [Watch the original tutorial](https://youtu.be/yzcg7YWqKao?si=P3K1hOXZ8YB4T4Xv) by *Freckled Fox*.
-    **Note that this game has some differences.**
+    **Note that this game is the same other than these differences:**
     * Move your character **[x]** using the buttons **8**, **4**, **2**, and **6** on the number pad.
     * Press "**CLEAR**" to quit.
+    * Press the blue "**2nd**" button to continue to next day.
     * Pixie dust lets you time-travel instead of teleporting.
     * There is neither a telescope nor a love potion in this game.
     * You get infinite inventory.
     * You can shop for all items at the same time.
+    * To use a bomb, use it before walking into an obstacle.
+    * Each armor upgrade reduces the damage given to you by monsters by one.
+    * Each level of sharpness increases your attack damage by one.
+    * Use the left and right arrow keys to cycle between the map, backpack, and allies menus.
+    * Use the up and down arrow keys to cycle between lines in backpack, and allies menus.
+    * Press "**DEL**" in the allies menu to abandon the selected ally.
   ### KEY:
   ```
     [+] → Attack  
     [F] → Food  
-    [{♡}] → Woo  
+    [♡] → Woo  
     [⁎] → Health  
     [A] → Treasure  
     [π] → Shop  

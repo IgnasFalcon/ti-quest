@@ -28,7 +28,7 @@ If L₅(6)=0
 "Str1=Textures
 " θFπ*A0? "→Str1
 
-"L₂=Position {1,2}=NEW {3,4=OLD {5}=DIRECTION (0=X 1=Y)
+"L₂=Position {1,2}=NEW {3,4}=OLD {5}=DIRECTION (0=X 1=Y)
 
 "Settings
 Goto T
@@ -56,7 +56,7 @@ ClrHome
 Goto T
 
 Lbl Q
-Output(1,1,"Move with the buttons:8,4,2,and 6 on the number pad.Press Clr to quit playing.Pixie dust lets you go to any day.                  There is no telescope and love potion. You get infinite inventory. Base game: ko-fi.com/album/Pocket-Quest-J3J55AN6F  Back:[ENTER]"
+Output(1,1,"Move with keys:8, 4, 2, 6.Press Clr to quit playing.Use left and right arrows to cycle though menus. Useup and down arrow keys to cycle though options.        Further instructions:  github.com/IgnasFalcon/ti-quest#ti-quest                          Back [ENTER]"
 Pause 
 ClrHome
 Lbl T
